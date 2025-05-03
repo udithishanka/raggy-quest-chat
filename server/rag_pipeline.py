@@ -24,9 +24,9 @@ def query_document_with_context(vector_store, query: str) -> str:
     retriever = vector_store.as_retriever(search_kwargs={"k": 5})
     prompt = ChatPromptTemplate.from_template(
         """
-        You are given a question and some extracted context that can be used to answer the question.
-        If the answer is not available in the given context,
-        say that information is not given and mention what the document is about.
+        You are a friendly and helpful assistant.
+        Use the context provided below to answer the user's question clearly and helpfully.
+        If the answer cannot be found in the context, say so politely and suggest what the document appears to be about.
 
         ==========
         Question: {question}
