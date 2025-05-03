@@ -58,46 +58,6 @@ const Index = () => {
         <Card className="flex-1 flex flex-col border shadow-xl overflow-hidden rounded-2xl bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm mb-12">
           <ChatContainer />
         </Card>
-        
-        {/* Additional tiles matching the provided image */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <Card className="p-8 bg-white shadow-lg rounded-xl border border-blue-100 flex flex-col items-center text-center transform transition-all duration-300 hover:translate-y-[-5px]">
-            <div className="h-20 w-20 rounded-full bg-blue-100 flex items-center justify-center mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
-                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                <polyline points="14 2 14 8 20 8"/>
-              </svg>
-            </div>
-            <h2 className="text-2xl font-semibold mb-3">Upload Documents</h2>
-            <p className="text-gray-600">
-              Add your PDFs, TXT files, or other documents to create a knowledge base for the AI assistant.
-            </p>
-          </Card>
-          
-          <Card className="p-8 bg-white shadow-lg rounded-xl border border-purple-100 flex flex-col items-center text-center transform transition-all duration-300 hover:translate-y-[-5px]">
-            <div className="h-20 w-20 rounded-full bg-purple-100 flex items-center justify-center mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-600">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-              </svg>
-            </div>
-            <h2 className="text-2xl font-semibold mb-3">Intelligent Queries</h2>
-            <p className="text-gray-600">
-              Our AI uses RAG technology to provide accurate, contextual answers based on your documents.
-            </p>
-          </Card>
-          
-          <Card className="p-8 bg-white shadow-lg rounded-xl border border-indigo-100 flex flex-col items-center text-center transform transition-all duration-300 hover:translate-y-[-5px]">
-            <div className="h-20 w-20 rounded-full bg-indigo-100 flex items-center justify-center mb-6">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-600">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
-            </div>
-            <h2 className="text-2xl font-semibold mb-3">Natural Conversation</h2>
-            <p className="text-gray-600">
-              Chat naturally with the assistant and get relevant responses sourced directly from your documents.
-            </p>
-          </Card>
-        </div>
       </main>
       
       <footer className="container mx-auto mt-4 py-6 text-center text-sm text-muted-foreground border-t border-gray-200 dark:border-gray-800">
