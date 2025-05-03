@@ -28,14 +28,14 @@ export function ChatInput({ onSend, disabled = false }: ChatInputProps) {
   };
 
   return (
-    <div className="relative">
+    <div className="relative bg-white dark:bg-slate-900 rounded-lg shadow-inner">
       <Textarea
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Ask a question..."
+        placeholder="Ask a question about your documents..."
         className={cn(
-          "w-full resize-none pr-14 focus-visible:ring-1",
+          "w-full resize-none pr-14 focus-visible:ring-1 border-blue-200 dark:border-blue-800 shadow-none min-h-[80px]",
           disabled && "opacity-60"
         )}
         rows={3}
@@ -44,7 +44,7 @@ export function ChatInput({ onSend, disabled = false }: ChatInputProps) {
       <Button
         onClick={handleSend}
         size="icon"
-        className="absolute right-2 bottom-2"
+        className="absolute right-2 bottom-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 shadow-md"
         disabled={disabled || !input.trim()}
       >
         <Send className="h-4 w-4" />

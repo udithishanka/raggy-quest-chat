@@ -88,6 +88,10 @@ export function ChatContainer() {
 
   return (
     <div className="flex flex-col h-full">
+      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 shadow-md">
+        <h2 className="text-xl font-semibold">Document Chat Assistant</h2>
+        <p className="text-sm opacity-80">Ask questions about your documents</p>
+      </div>
       <ScrollArea className="flex-1 h-[calc(100%-10rem)]">
         <div className="divide-y divide-border">
           {messages.map((message) => (
@@ -99,7 +103,7 @@ export function ChatContainer() {
           <div ref={messagesEndRef} />
         </div>
       </ScrollArea>
-      <div className="p-4 border-t">
+      <div className="p-4 border-t border-blue-100 dark:border-blue-900">
         <ChatInput onSend={handleSendMessage} disabled={isLoading} />
       </div>
     </div>
