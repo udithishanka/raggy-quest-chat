@@ -16,7 +16,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Plus } from "lucide-react";
+import { Plus, FileText, Settings, PanelRightOpen } from "lucide-react";
 
 interface Message {
   id: string;
@@ -135,35 +135,61 @@ export function ChatContainer() {
     });
   };
 
+  const handleClearMessages = () => {
+    setMessages([
+      {
+        id: "welcome",
+        type: "system",
+        content: "Chat history cleared. Ask me questions about the document database.",
+      },
+    ]);
+  };
+
   return (
     <div className="flex flex-col h-full">
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 shadow-md">
+      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white py-4 px-6 shadow-md">
         <div className="flex justify-between items-center">
           <div>
-            <h2 className="text-xl font-semibold">Document Chat Assistant</h2>
-            <p className="text-sm opacity-80">Ask questions about your documents</p>
+            <h2 className="text-xl font-semibold flex items-center">
+              <FileText className="h-5 w-5 mr-2" />
+              Document Chat Assistant
+            </h2>
+            <p className="text-sm opacity-90">Ask questions about your documents</p>
           </div>
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="secondary" size="sm" className="bg-white/20 hover:bg-white/30 text-white border-none">
-                <Plus className="h-4 w-4 mr-2" />
-                Add Document
-              </Button>
-            </SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetTitle>Add Documents to Knowledge Base</SheetTitle>
-              </SheetHeader>
-              <div className="py-4">
-                <DocumentUpload onUploadSuccess={handleAddDocument} />
-              </div>
-              <Separator className="my-4" />
-              <DocumentList 
-                documents={documents}
-                onDeleteDocument={handleDeleteDocument}
-              />
-            </SheetContent>
-          </Sheet>
+          <div className="flex gap-2">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={handleClearMessages}
+              className="bg-white/10 hover:bg-white/20 text-white border-none hidden sm:flex"
+            >
+              Clear Chat
+            </Button>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="secondary" size="sm" className="bg-white/20 hover:bg-white/30 text-white border-none">
+                  <Plus className="h-4 w-4 mr-2" />
+                  Add Document
+                </Button>
+              </SheetTrigger>
+              <SheetContent className="sm:max-w-md overflow-y-auto">
+                <SheetHeader>
+                  <SheetTitle className="flex items-center">
+                    <FileText className="mr-2 h-5 w-5" /> 
+                    Knowledge Base Documents
+                  </SheetTitle>
+                </SheetHeader>
+                <div className="py-6">
+                  <DocumentUpload onUploadSuccess={handleAddDocument} />
+                </div>
+                <Separator className="my-6" />
+                <DocumentList 
+                  documents={documents}
+                  onDeleteDocument={handleDeleteDocument}
+                />
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
       
@@ -180,7 +206,7 @@ export function ChatContainer() {
               <div ref={messagesEndRef} />
             </div>
           </ScrollArea>
-          <div className="p-4 border-t border-blue-100 dark:border-blue-900">
+          <div className="p-6 border-t border-blue-100 dark:border-blue-900/30 bg-gradient-to-t from-blue-50 to-transparent dark:from-blue-950/10 dark:to-transparent">
             <ChatInput onSend={handleSendMessage} disabled={isLoading} />
           </div>
         </div>
