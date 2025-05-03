@@ -10,13 +10,13 @@ const Index = () => {
           Smart Document Assistant
         </h1>
         <p className="text-lg text-slate-700 dark:text-slate-300 max-w-2xl">
-          Leverage the power of AI with Retrieval-Augmented Generation (RAG) to get accurate answers from your documents. 
+          Leverage the power of AI with Retrieval-Augmented Generation (RAG) to get accurate answers from your documents.
           Upload your files and start asking questions instantly.
         </p>
       </header>
-      
+
       <main className="container mx-auto flex-1 flex flex-col">
-        
+
         <Card className="flex-1 flex flex-col border shadow-xl overflow-hidden rounded-2xl bg-white/90 dark:bg-slate-950/90 backdrop-blur-sm mb-12">
           <ChatContainer />
         </Card>
@@ -35,7 +35,7 @@ const Index = () => {
             Add your PDFs, TXT files, or other documents to create a knowledge base for the AI assistant.
           </p>
         </Card>
-        
+
         <Card className="p-6 bg-gradient-to-br from-white to-purple-50 dark:from-slate-900 dark:to-purple-950/20 shadow-lg border-purple-100 dark:border-purple-900/20 flex flex-col items-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
           <div className="h-16 w-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-purple-600 dark:text-purple-400">
@@ -47,7 +47,7 @@ const Index = () => {
             Our AI uses RAG technology to provide accurate, contextual answers based on your documents.
           </p>
         </Card>
-        
+
         <Card className="p-6 bg-gradient-to-br from-white to-indigo-50 dark:from-slate-900 dark:to-indigo-950/20 shadow-lg border-indigo-100 dark:border-indigo-900/20 flex flex-col items-center text-center transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
           <div className="h-16 w-16 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-600 dark:text-indigo-400">
@@ -61,7 +61,7 @@ const Index = () => {
         </Card>
       </div>
       </main>
-      
+
       <footer className="container mx-auto mt-4 py-6 text-center text-sm text-muted-foreground border-t border-gray-200 dark:border-gray-800">
         <p className="mb-2">RAG-powered AI Assistant using FastAPI backend</p>
         <p>Upload your documents and enhance your knowledge base for more accurate responses</p>

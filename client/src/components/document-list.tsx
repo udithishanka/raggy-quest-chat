@@ -40,8 +40,8 @@ export function DocumentList({ documents, onDeleteDocument }: DocumentListProps)
       </div>
       <div className="p-2">
         {documents.map((doc) => (
-          <div 
-            key={doc.id} 
+          <div
+            key={doc.id}
             className="flex items-center justify-between p-3 rounded-md hover:bg-accent group animate-fade-in"
           >
             <div className="flex items-center space-x-3">
@@ -50,10 +50,10 @@ export function DocumentList({ documents, onDeleteDocument }: DocumentListProps)
               </div>
               <span className="text-sm font-medium">{doc.name}</span>
             </div>
-            <Button 
-              size="sm" 
-              variant="ghost" 
-              className="opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/30" 
+            <Button
+              size="sm"
+              variant="ghost"
+              className="opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-100 hover:text-red-600 dark:hover:bg-red-900/30"
               onClick={() => onDeleteDocument(doc.id)}
             >
               <Trash className="h-4 w-4" />

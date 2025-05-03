@@ -66,7 +66,7 @@ export function ChatContainer() {
 
     try {
       const response = await queryRag(content);
-      
+
       if (response.error) {
         setMessages((prev) => [
           ...prev,
@@ -112,7 +112,7 @@ export function ChatContainer() {
       name: fileName,
     };
     setDocuments((prev) => [...prev, newDoc]);
-    
+
     setMessages((prev) => [
       ...prev,
       {
@@ -126,9 +126,9 @@ export function ChatContainer() {
   const handleDeleteDocument = (id: string) => {
     const docToDelete = documents.find(doc => doc.id === id);
     if (!docToDelete) return;
-    
+
     setDocuments(documents.filter(doc => doc.id !== id));
-    
+
     toast({
       title: "Document removed",
       description: `"${docToDelete.name}" has been removed from the knowledge base.`,
@@ -157,9 +157,9 @@ export function ChatContainer() {
             <p className="text-sm opacity-90">Ask questions about your documents</p>
           </div>
           <div className="flex gap-2">
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               onClick={handleClearMessages}
               className="bg-white/10 hover:bg-white/20 text-white border-none hidden sm:flex"
             >
@@ -175,7 +175,7 @@ export function ChatContainer() {
               <SheetContent className="sm:max-w-md overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle className="flex items-center">
-                    <FileText className="mr-2 h-5 w-5" /> 
+                    <FileText className="mr-2 h-5 w-5" />
                     Knowledge Base Documents
                   </SheetTitle>
                 </SheetHeader>
@@ -183,7 +183,7 @@ export function ChatContainer() {
                   <DocumentUpload onUploadSuccess={handleAddDocument} />
                 </div>
                 <Separator className="my-6" />
-                <DocumentList 
+                <DocumentList
                   documents={documents}
                   onDeleteDocument={handleDeleteDocument}
                 />
@@ -192,7 +192,7 @@ export function ChatContainer() {
           </div>
         </div>
       </div>
-      
+
       <div className="flex flex-1 overflow-hidden">
         <div className="flex-1 flex flex-col">
           <ScrollArea className="flex-1">

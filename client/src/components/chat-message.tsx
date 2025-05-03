@@ -15,12 +15,12 @@ export function ChatMessage({ type, content, isLoading = false }: ChatMessagePro
     <div
       className={cn(
         "py-6 px-4 md:px-8 flex items-start gap-4 transition-colors",
-        type === "user" 
-          ? "bg-white dark:bg-slate-900" 
-          : type === "assistant" 
-            ? "bg-blue-50/80 dark:bg-slate-800/80" 
-            : type === "system" 
-              ? "bg-purple-50/80 dark:bg-purple-950/80" 
+        type === "user"
+          ? "bg-white dark:bg-slate-900"
+          : type === "assistant"
+            ? "bg-blue-50/80 dark:bg-slate-800/80"
+            : type === "system"
+              ? "bg-purple-50/80 dark:bg-purple-950/80"
               : "bg-red-50/80 dark:bg-red-950/80",
         type === "user" && "border-l-4 border-blue-500",
         type === "assistant" && "border-l-4 border-green-500",

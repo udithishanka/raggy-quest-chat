@@ -18,7 +18,7 @@ export function DocumentUpload({ onUploadSuccess }: DocumentUploadProps) {
     if (!files || files.length === 0) return;
 
     await processFile(files[0]);
-    
+
     // Reset the input
     e.target.value = "";
   };
@@ -26,7 +26,7 @@ export function DocumentUpload({ onUploadSuccess }: DocumentUploadProps) {
   const handleDrop = async (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(false);
-    
+
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       await processFile(e.dataTransfer.files[0]);
     }
@@ -34,19 +34,19 @@ export function DocumentUpload({ onUploadSuccess }: DocumentUploadProps) {
 
   const processFile = async (file: File) => {
     setIsUploading(true);
-    
+
     // In a real application, we would upload the file to the backend
     // For this demo, we'll simulate a successful upload after a delay
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       // Success notification
       toast({
         title: "Document uploaded",
         description: `${file.name} has been successfully uploaded to the knowledge base.`,
       });
-      
+
       onUploadSuccess(file.name);
     } catch (error) {
       console.error("Error uploading file:", error);
@@ -61,17 +61,17 @@ export function DocumentUpload({ onUploadSuccess }: DocumentUploadProps) {
   };
 
   return (
-    <div 
+    <div
       className={`flex flex-col items-center space-y-4 p-8 border-2 border-dashed rounded-xl transition-all
-        ${isDragging 
-          ? "border-blue-500 bg-blue-50/80 dark:bg-blue-900/20" 
+        ${isDragging
+          ? "border-blue-500 bg-blue-50/80 dark:bg-blue-900/20"
           : "border-blue-300 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-950/20 hover:border-blue-400 dark:hover:border-blue-700"}`}
       onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
       onDragEnter={() => setIsDragging(true)}
       onDragLeave={() => setIsDragging(false)}
       onDrop={handleDrop}
     >
-      <div className={`h-16 w-16 rounded-full flex items-center justify-center transition-all duration-300 
+      <div className={`h-16 w-16 rounded-full flex items-center justify-center transition-all duration-300
         ${isDragging ? "bg-blue-200 dark:bg-blue-800 scale-110" : "bg-blue-100 dark:bg-blue-900/30"}`}>
         {isUploading ? (
           <svg className="animate-spin h-8 w-8 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -85,13 +85,13 @@ export function DocumentUpload({ onUploadSuccess }: DocumentUploadProps) {
       <div className="text-center">
         <h3 className="font-semibold text-lg mb-1">Upload Documents</h3>
         <p className="text-sm text-muted-foreground mb-4">
-          {isDragging 
-            ? "Drop file here to upload" 
+          {isDragging
+            ? "Drop file here to upload"
             : "Drag & drop files here or click to browse"}
         </p>
         <div className="flex flex-col items-center sm:flex-row sm:space-x-4 space-y-3 sm:space-y-0 justify-center">
           <label htmlFor="file-upload">
-            <Button 
+            <Button
               disabled={isUploading}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-md"
             >
