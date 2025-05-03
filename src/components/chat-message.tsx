@@ -21,21 +21,33 @@ export function ChatMessage({ type, content, isLoading = false }: ChatMessagePro
             ? "bg-blue-50/80 dark:bg-slate-800/80" 
             : type === "system" 
               ? "bg-purple-50/80 dark:bg-purple-950/80" 
-              : "bg-red-50/80 dark:bg-red-950/80"
+              : "bg-red-50/80 dark:bg-red-950/80",
+        type === "user" && "border-l-4 border-blue-500",
+        type === "assistant" && "border-l-4 border-green-500",
+        type === "system" && "border-l-4 border-purple-500",
+        type === "error" && "border-l-4 border-red-500"
       )}
     >
       <div className="flex-shrink-0">
         {type === "user" ? (
-          <div className="h-10 w-10 rounded-full bg-chatbot-user text-white flex items-center justify-center text-sm font-medium shadow-md">
-            U
+          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white flex items-center justify-center text-sm font-medium shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
           </div>
         ) : type === "assistant" ? (
-          <div className="h-10 w-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white flex items-center justify-center text-sm font-medium shadow-md">
-            A
+          <div className="h-10 w-10 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 text-white flex items-center justify-center text-sm font-medium shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
           </div>
         ) : type === "system" ? (
           <div className="h-10 w-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white flex items-center justify-center text-sm font-medium shadow-md">
-            S
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
           </div>
         ) : (
           <div className="h-10 w-10 rounded-full bg-destructive text-destructive-foreground flex items-center justify-center shadow-md">
@@ -45,13 +57,13 @@ export function ChatMessage({ type, content, isLoading = false }: ChatMessagePro
       </div>
       <div className="flex-1 overflow-hidden">
         {isLoading ? (
-          <div className="animate-pulse-slow flex space-x-2">
+          <div className="flex space-x-2">
             <div className="h-2 w-2 rounded-full bg-blue-400 animate-bounce"></div>
             <div className="h-2 w-2 rounded-full bg-blue-400 animate-bounce [animation-delay:0.2s]"></div>
             <div className="h-2 w-2 rounded-full bg-blue-400 animate-bounce [animation-delay:0.4s]"></div>
           </div>
         ) : (
-          <div className="message-content">
+          <div className="message-content prose prose-sm dark:prose-invert max-w-none">
             {content.split("\n").map((paragraph, i) => (
               <p key={i} className="mb-2 last:mb-0">{paragraph}</p>
             ))}

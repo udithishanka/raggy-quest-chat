@@ -33,9 +33,9 @@ export function ChatInput({ onSend, disabled = false }: ChatInputProps) {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Ask a question about your documents..."
+        placeholder="Ask about your documents... (Press Enter to send)"
         className={cn(
-          "w-full resize-none pr-14 focus-visible:ring-1 border-blue-200 dark:border-blue-800 shadow-none min-h-[80px]",
+          "w-full resize-none pr-14 focus-visible:ring-1 border-blue-200 dark:border-blue-800 shadow-none min-h-[80px] rounded-md",
           disabled && "opacity-60"
         )}
         rows={3}
@@ -44,7 +44,7 @@ export function ChatInput({ onSend, disabled = false }: ChatInputProps) {
       <Button
         onClick={handleSend}
         size="icon"
-        className="absolute right-2 bottom-2 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 shadow-md"
+        className="absolute right-2 bottom-2 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 hover:from-blue-600 hover:via-purple-600 hover:to-indigo-600 shadow-md"
         disabled={disabled || !input.trim()}
       >
         <Send className="h-4 w-4" />
