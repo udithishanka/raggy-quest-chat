@@ -2,6 +2,11 @@
 
 A Retrieval-Augmented Generation (RAG) based chatbot application that retrieves relevant context from documents to enhance language model responses.
 
+## 🎥 Demo
+
+https://github.com/user-attachments/assets/6fd9ab90-6386-4c1a-9922-373e0070fd5a
+
+
 ## 🌟 Features
 
 - **Document Ingestion**: Upload and process various document types (PDF, TXT, DOCX, etc.)
@@ -19,9 +24,6 @@ A Retrieval-Augmented Generation (RAG) based chatbot application that retrieves 
 
 ## 🚀 Getting Started
 
-## 🎥 Demo
-
-https://github.com/user-attachments/assets/6fd9ab90-6386-4c1a-9922-373e0070fd5a
 
 ### Prerequisites
 
