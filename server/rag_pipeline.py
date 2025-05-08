@@ -8,6 +8,11 @@ from langchain_text_splitters import (
     RecursiveCharacterTextSplitter,
     CharacterTextSplitter,
 )
+from langchain_community.document_loaders import (
+    TextLoader,
+    PyPDFLoader,
+    UnstructuredWordDocumentLoader,
+)
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -17,10 +22,27 @@ load_dotenv()
 
 
 def load_documents(file_path: str):
-    loader = TextLoader(file_path)
+    ext = os.path.splitext(file_path)[-1].lower()
+
+    if ext == ".pdf":
+        loader = PyPDFLoader(file_path)
+    elif ext == ".txt":
+        loader = TextLoader(file_path, encoding="utf-8")
+    elif ext == ".docx":
+        loader = UnstructuredWordDocumentLoader(file_path)
+    else:
+        raise ValueError(f"Unsupported file format: {ext}")
+
     documents = loader.load()
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     return text_splitter.split_documents(documents)
+
+
+# def load_documents(file_path: str):
+#     loader = TextLoader(file_path)
+#     documents = loader.load()
+#     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+#     return text_splitter.split_documents(documents)
 
 
 def create_vector_store(documents):

@@ -15,6 +15,8 @@ db.json
 myenv/
 server/examples/
 
+*.pdf
+
 # Test files
 **/test_*.py
 server/test_*.py

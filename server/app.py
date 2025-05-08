@@ -7,6 +7,9 @@ from rag_pipeline import (
     load_documents,
     query_document_with_context,
 )
+from fastapi import UploadFile, File
+import os
+import shutil
 
 app = FastAPI()
 
@@ -35,3 +38,17 @@ async def query(request: Request):
     result = query_document_with_context(vector_store, question)
     print(f"Query: {question}, Answer: {result}")
     return {"answer": result}
+
+
+@app.post("/upload-document")
+async def upload_document(file: UploadFile = File(...)):
+    file_location = f"data/{file.filename}"
+    os.makedirs("data", exist_ok=True)
+    with open(file_location, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+
+    global documents, vector_store
+    documents = load_documents(file_location)
+    vector_store = create_vector_store(documents)
+
+    return {"message": f"{file.filename} uploaded and vector store updated."}

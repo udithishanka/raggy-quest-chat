@@ -34,7 +34,7 @@ export function ChatContainer() {
     {
       id: "welcome",
       type: "system",
-      content: "Welcome to the RAG-powered chatbot! Ask me questions about the document database.",
+      content: "Welcome to the RAG-powered chatbot!",
     },
   ]);
   const [isLoading, setIsLoading] = useState(false);
