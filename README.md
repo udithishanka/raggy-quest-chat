@@ -19,6 +19,11 @@ A Retrieval-Augmented Generation (RAG) based chatbot application that retrieves 
 
 ## 🚀 Getting Started
 
+## 🎥 Demo
+
+[Click to watch the demo video](video.mp4)
+
+
 ### Prerequisites
 
 - Python 3.10+
