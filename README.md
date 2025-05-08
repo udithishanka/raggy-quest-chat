@@ -21,8 +21,6 @@ A Retrieval-Augmented Generation (RAG) based chatbot application that retrieves 
 
 ## 🎥 Demo
 
-[Click to watch the demo video](video.mp4)
-
 https://github.com/user-attachments/assets/6fd9ab90-6386-4c1a-9922-373e0070fd5a
 
 ### Prerequisites
