@@ -35,6 +35,7 @@ pytest.ini
 **/*.h5
 **/cache/
 
+.env
 # Node
 node_modules/
 *.md

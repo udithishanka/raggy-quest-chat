@@ -37,14 +37,6 @@ def load_documents(file_path: str):
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     return text_splitter.split_documents(documents)
 
-
-# def load_documents(file_path: str):
-#     loader = TextLoader(file_path)
-#     documents = loader.load()
-#     text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
-#     return text_splitter.split_documents(documents)
-
-
 def create_vector_store(documents):
     embeddings = OpenAIEmbeddings()
     return FAISS.from_documents(documents, embeddings)
