@@ -9,3 +9,4 @@ faiss-cpu
 streamlit
 requests
 python-dotenv
+sentence-transformers
